@@ -20,9 +20,10 @@ ${pkg.name} ${pkg.version}
   process.exit(0)
 }
 
-const server = require('../lib/server')
+const createApi = require('../lib/create-api')
+const fixtures = require('../lib/fixtures')
 
-const port = argv.p || argv.port ? parseInt(argv.p || argv.port) || null : null
+const port = argv.p || argv.port ? parseInt(argv.p || argv.port) : 8546
 const silent = argv.s || argv.silent
 
 const bail = (err) => {
@@ -30,13 +31,13 @@ const bail = (err) => {
   process.exit(1)
 }
 
-server.start(port, (err, port, accounts) => {
-  if (err) return bail(err)
-  if (!silent) {
-    console.log(`Test server running at port ${port}.`)
-
-    const pretty = Object.keys(accounts).map((address, i) => `\t${i} ${address}`).join('\n')
-    console.info('accounts created:')
-    console.info(pretty)
-  }
+const api = createApi(port)
+fixtures.run(api)
+.then(({account, registry, emailAddress, smsAddress}) => {
+  if (silent) return
+  console.log('unlocked account:', account)
+  console.log('Registry:', registry.address)
+  console.log('EmailVerification:', emailAddress)
+  console.log('SMSVerification:', smsAddress)
 })
+.catch(bail)
