@@ -26,6 +26,7 @@
     "node": ">=7"
   },
   "dependencies": {
+    "@parity/parity.js": "^0.3.68"
   },
   "devDependencies": {
     "husky": "^0.13.1",
