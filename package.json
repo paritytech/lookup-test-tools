@@ -4,13 +4,20 @@
   "version": "0.1.0",
   "description": "Tools for testing Ethereum libraries and services.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "bin/*.js"
+  ],
   "bin": {
     "test-server": "bin/server.js"
   },
   "scripts": {
     "lint": "standard",
-    "prepush": "npm run lint",
-    "prepublish": "npm run lint"
+    "fetch-contract": "curl --fail -L 'https://raw.githubusercontent.com/ethcore/contracts/master/SimpleRegistry.sol' > contracts/SimpleRegistry.sol",
+    "compile": "solcjs --abi --bin --optimize contracts/SimpleRegistry.sol",
+    "prepush": "npm run lint && npm run fetch-contract && npm run compile",
+    "prepublish": "npm run prepush"
   },
   "keywords": [
     "parity",
@@ -31,7 +38,8 @@
   "dependencies": {
     "@parity/parity.js": "^0.3.68",
     "ethereumjs-testrpc": "^3.0.3",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "solc": "^0.4.9"
   },
   "devDependencies": {
     "husky": "^0.13.1",
