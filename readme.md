@@ -12,12 +12,12 @@
 ## Installation
 
 ```shell
-npm install --save-dev ethcore/test-tools
+npm install --save-dev ethcore/lookup-test-tools
 ```
 
 ## Usage
 
-You can use `test-tools` from the CLI to quickly get a running test server.
+You can use `lookup-test-tools` from the CLI to quickly get a running test server.
 
 ```shell
 test-server # run the RPC server
@@ -29,7 +29,7 @@ To get more fine-grained control or to control the testbed from JS, you can use 
 ### in-memory RPC server
 
 ```js
-const server = require('test-tools/lib/server')
+const server = require('lookup-test-tools/lib/server')
 server.start(port = 8546, cb)
 server.stop()
 ```
@@ -37,28 +37,28 @@ server.stop()
 ### deploy a contract
 
 ```js
-const deploy = require('test-tools/lib/deploy')
+const deploy = require('lookup-test-tools/lib/deploy')
 deploy(api, abi, bin, values = []) // returns a Promise
 ```
 
 ### e-mail-verify an account at `EmailVerification.sol`
 
 ```js
-const emailVerifyAccount = require('test-tools/lib/email-verify-account')
+const emailVerifyAccount = require('lookup-test-tools/lib/email-verify-account')
 emailVerifyAccount(api, contractAddress, owner, account, email) // returns a Promise
 ```
 
 ### SMS-verify an account at `SMSVerification.sol`
 
 ```js
-const smsVerifyAccount = require('test-tools/lib/sms-verify-account')
+const smsVerifyAccount = require('lookup-test-tools/lib/sms-verify-account')
 smsVerifyAccount(api, contractAddress, owner, account) // returns a Promise
 ```
 
 ### register a name at `Registry.sol` and set records on it
 
 ```js
-const register = require('test-tools/lib/register')
+const register = require('lookup-test-tools/lib/register')
 register(registry, account, name, data) // returns a Promise
 ```
 
@@ -67,7 +67,7 @@ register(registry, account, name, data) // returns a Promise
 Deploys the contracts listed below.
 
 ```js
-const fixtures = require('test-tools/lib/fixtures')
+const fixtures = require('lookup-test-tools/lib/fixtures')
 fixtures.run(api) // returns a Promise
 ```
 
@@ -77,11 +77,11 @@ These get downloaded from [`ethcore/contracts`](https://github.com/ethcore/contr
 
 ```js
 // Registry.sol
-const {abi, bin} = require('test-tools/lib/contracts/registry')
+const {abi, bin} = require('lookup-test-tools/lib/contracts/registry')
 
 // EmailVerification.sol
-const {abi, bin} = require('test-tools/lib/contracts/email-verification')
+const {abi, bin} = require('lookup-test-tools/lib/contracts/email-verification')
 
 // SMSVerification.sol
-const {abi, bin} = require('test-tools/lib/contracts/sms-verification')
+const {abi, bin} = require('lookup-test-tools/lib/contracts/sms-verification')
 ```
