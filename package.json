@@ -15,10 +15,10 @@
   },
   "scripts": {
     "lint": "standard",
-    "fetch-contract": "curl --fail -L 'https://raw.githubusercontent.com/ethcore/contracts/master/SimpleRegistry.sol' > contracts/SimpleRegistry.sol",
+    "fetch-contracts": "./fetch-contracts.sh",
     "compile": "solcjs --abi --bin --optimize contracts/SimpleRegistry.sol",
     "test": "./bin/server.js -s & sleep 3; node test.js | tap-spec; s=$?; kill %1; exit $s",
-    "prepush": "npm run lint && npm run fetch-contract && npm run compile && npm test",
+    "prepush": "npm run lint && npm run fetch-contracts && npm run compile && npm test",
     "prepublish": "npm run prepush"
   },
   "keywords": [
