@@ -6,6 +6,4 @@ cache:
   directories:
     - node_modules
 script:
-  - npm run fetch-contract
-  - npm run compile
-  - npm run lint
+  - npm run prepublish
