@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "description": "Tools for testing Ethereum libraries and services.",
   "main": "index.js",
+  "bin": {
+    "test-server": "bin/server.js"
+  },
   "scripts": {
     "lint": "standard",
     "prepush": "npm run lint",
@@ -26,7 +29,9 @@
     "node": ">=7"
   },
   "dependencies": {
-    "@parity/parity.js": "^0.3.68"
+    "@parity/parity.js": "^0.3.68",
+    "ethereumjs-testrpc": "^3.0.3",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
     "husky": "^0.13.1",
