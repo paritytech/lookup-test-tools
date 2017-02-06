@@ -21,18 +21,21 @@ ${pkg.name} ${pkg.version}
   process.exit(0)
 }
 
+const port = argv.p || argv.port ? parseInt(argv.p || argv.port) || null : null
+const silent = argv.s || argv.silent
+
 const bail = (err) => {
   console.error(err)
   process.exit(1)
 }
 
-const port = argv.p || argv.port ? parseInt(argv.p || argv.port) || null : null
-
 server.start(port, (err, port, accounts) => {
   if (err) return bail(err)
-  console.log(`Test server running at port ${port}.`)
+  if (!silent) {
+    console.log(`Test server running at port ${port}.`)
 
-  const pretty = Object.keys(accounts).map((address, i) => `\t${i} ${address}`).join('\n')
-  console.info('accounts created:')
-  console.info(pretty)
+    const pretty = Object.keys(accounts).map((address, i) => `\t${i} ${address}`).join('\n')
+    console.info('accounts created:')
+    console.info(pretty)
+  }
 })
