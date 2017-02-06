@@ -41,6 +41,20 @@ const deploy = require('test-tools/lib/deploy')
 deploy(api, abi, bin, values = []) // returns a Promise
 ```
 
+### e-mail-verify an account at `EmailVerification.sol`
+
+```js
+const emailVerifyAccount = require('test-tools/lib/email-verify-account')
+emailVerifyAccount(api, contractAddress, owner, account, email) // returns a Promise
+```
+
+### SMS-verify an account at `SMSVerification.sol`
+
+```js
+const smsVerifyAccount = require('test-tools/lib/sms-verify-account')
+smsVerifyAccount(api, contractAddress, owner, account) // returns a Promise
+```
+
 ### register a name at `Registry.sol` and set records on it
 
 ```js
