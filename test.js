@@ -5,16 +5,17 @@ const test = require('tape')
 const createApi = require('./lib/create-api')
 const fixtures = require('./lib/fixtures')
 
-test('deployed the registry', (t) => {
-  t.plan(1)
+test('deploys Registry, EmailVerification & SMSVerification', (t) => {
+  t.plan(4)
 
   const api = createApi()
   fixtures.run(api)
-  .then(() => {
-    return api.parity.registryAddress()
-  })
-  .then((address) => {
-    t.ok(isAddressValid(address), 'registry address is invalid')
+  .then(({registry, emailAddress, smsAddress}) => {
+    t.ok(registry)
+    t.ok(isAddressValid(registry.address), 'Registry address is invalid')
+
+    t.ok(isAddressValid(emailAddress), 'EmailVerification address is invalid')
+    t.ok(isAddressValid(smsAddress), 'SMSVerification address is invalid')
   })
   .catch(t.ifError)
 })
