@@ -2,8 +2,14 @@ sudo: false
 language: node_js
 node_js:
   - 'stable'
+addons:
+  apt:
+    packages:
+    - gcc
+    - g++
+    - clang
+script:
+  - npm run prepublish
 cache:
   directories:
     - node_modules
-script:
-  - npm run prepublish
