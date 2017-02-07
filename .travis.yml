@@ -2,6 +2,8 @@ sudo: false
 language: node_js
 node_js:
   - 'stable'
+env:
+  - CXX=g++
 addons:
   apt:
     packages:
