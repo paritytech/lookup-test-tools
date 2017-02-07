@@ -1,9 +1,10 @@
 sudo: false
+dist: trusty
 language: node_js
 node_js:
   - 'stable'
+script:
+  - npm run prepublish
 cache:
   directories:
     - node_modules
-script:
-  - npm run prepublish
