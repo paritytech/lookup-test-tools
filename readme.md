@@ -1,5 +1,7 @@
 # [Parity](https://ethcore.io/parity.html) testing tools
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ethcore/lookup-test-tools.svg)](https://greenkeeper.io/)
+
 **A testbed for [Parity](https://ethcore.io/parity.html) tools.** Starts an [in-memory RPC server](https://github.com/ethereumjs/testrpc) and deploys all contracts the Parity UI usually relies on.
 
 [![Join the chat at https://gitter.im/ethcore/parity][gitter-image]][gitter-url] [![GPLv3][license-image]][license-url]
