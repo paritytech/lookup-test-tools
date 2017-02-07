@@ -1,15 +1,8 @@
 sudo: false
+dist: trusty
 language: node_js
 node_js:
   - 'stable'
-env:
-  - CXX=g++
-addons:
-  apt:
-    packages:
-    - gcc
-    - g++
-    - clang
 script:
   - npm run prepublish
 cache:
