@@ -39,7 +39,7 @@
     "node": ">=7"
   },
   "dependencies": {
-    "@parity/parity.js": "^0.3.68",
+    "@parity/parity.js": "0.3.70",
     "co": "^4.6.0",
     "ethereumjs-testrpc": "^3.0.3",
     "minimist": "^1.2.0",
