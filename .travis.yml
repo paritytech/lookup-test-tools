@@ -4,7 +4,9 @@ language: node_js
 node_js:
   - 'stable'
 script:
-  - npm run prepublish
+  - ./bin/server.js -s &
+  - sleep 3
+  - node test.js | tap-spec
 cache:
   directories:
     - node_modules
