@@ -4,9 +4,7 @@ language: node_js
 node_js:
   - 'stable'
 script:
-  - ./bin/server.js -s &
-  - sleep 3
-  - node test.js | tap-spec
+  - npm run prepush
 cache:
   directories:
     - node_modules
