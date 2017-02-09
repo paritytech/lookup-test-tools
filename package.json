@@ -19,7 +19,7 @@
     "lint": "standard",
     "fetch-contracts": "./fetch-contracts.sh",
     "compile": "solcjs --abi --bin --optimize contracts/*.sol",
-    "test": "./bin/server.js -s & sleep 3; node test.js | tap-spec; s=$?; kill %1; exit $s",
+    "test": "./bin/server.js -s & bin/wait-for-server.js && node test.js | tap-spec; s=$?; kill %1; exit $s",
     "prepush": "npm run lint && npm run fetch-contracts && npm run compile && npm test"
   },
   "keywords": [
@@ -43,7 +43,9 @@
     "@parity/parity.js": "^0.3.68",
     "co": "^4.6.0",
     "ethereumjs-testrpc": "^3.0.3",
+    "fetch-ponyfill": "^3.0.2",
     "minimist": "^1.2.0",
+    "p-retry": "^1.0.0",
     "solc": "^0.4.9"
   },
   "devDependencies": {
