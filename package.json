@@ -13,6 +13,7 @@
   ],
   "bin": {
     "test-server": "bin/server.js",
+    "wait-for-server": "bin/wait-for-server.js",
     "deploy-fixtures": "bin/deploy-fixtures.js"
   },
   "scripts": {

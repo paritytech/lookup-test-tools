@@ -22,7 +22,7 @@ ${pkg.name} ${pkg.version}
 
 const server = require('../lib/server')
 
-const port = argv.p || argv.port ? parseInt(argv.p || argv.port) || null : null
+const port = argv.p || argv.port ? parseInt(argv.p || argv.port) || 8546 : 8546
 const silent = argv.s || argv.silent
 
 const bail = (err) => {
