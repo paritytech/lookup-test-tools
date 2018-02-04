@@ -44,7 +44,7 @@
     "@parity/parity.js": "^0.3.68",
     "co": "^4.6.0",
     "ethereumjs-testrpc": "^3.0.3",
-    "fetch-ponyfill": "^4.0.0",
+    "fetch-ponyfill": "^5.0.0",
     "minimist": "^1.2.0",
     "p-retry": "^1.0.0",
     "solc": "^0.4.9"
