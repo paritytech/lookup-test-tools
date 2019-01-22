@@ -47,7 +47,7 @@
     "fetch-ponyfill": "^4.0.0",
     "minimist": "^1.2.0",
     "p-retry": "^1.0.0",
-    "solc": "^0.4.9"
+    "solc": "^0.5.3"
   },
   "devDependencies": {
     "husky": "^0.13.1",
