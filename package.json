@@ -46,7 +46,7 @@
     "ethereumjs-testrpc": "^3.0.3",
     "fetch-ponyfill": "^4.0.0",
     "minimist": "^1.2.0",
-    "p-retry": "^1.0.0",
+    "p-retry": "^4.0.0",
     "solc": "^0.4.9"
   },
   "devDependencies": {
